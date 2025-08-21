@@ -1,4 +1,4 @@
-In this 4th comment, we'll be upgrading the cluster using the mirror-registry.  We are going from `4.19.1` to `4.19.2`.
+In this 4th step, we'll be upgrading the cluster using the mirror-registry.  We are going from `4.19.1` to `4.19.2`.
 
 Following this guide for the CLI-related steps 
 
