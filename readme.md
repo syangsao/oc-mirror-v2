@@ -4,7 +4,7 @@ The local registry used for this configuration is a Quay mirror-registry running
 
 https://www.redhat.com/en/blog/introducing-mirror-registry-for-red-hat-openshift
 
-`STEP 1` - Using oc-mirror v2 to mirror the release and operator images from Red Hat to a local registry
+`STEP 1`![](https://github.com/syangsao/oc-mirror-v2/blob/main/Step%201%20.md) - Using oc-mirror v2 to mirror the release and operator images from Red Hat to a local registry
 
 `STEP 2` - Converting a connected OpenShift cluster to a disconnected one while talking to a local registry
 
