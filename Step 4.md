@@ -67,7 +67,7 @@ Recommended updates:
 
 You can also check the status via the UI:
 
-
+!(https://github.com/syangsao/oc-mirror-v2/blob/main/update-pic.png)
 
 4.  Verify upgrade is completed:
 
