@@ -1,4 +1,4 @@
-For this 3rd comment, we'll be installing `OSUS` in a disconnected environment, following this procedure
+For this 3rd step, we'll be installing `OSUS` in a disconnected environment, following this procedure
 
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html-single/updating_clusters/index#update-service-overview_updating-restricted-network-cluster-osus
 

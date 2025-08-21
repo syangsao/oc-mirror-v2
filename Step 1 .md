@@ -1,4 +1,4 @@
-In this first comment, these are the steps we'll take to mirror the images from the public Red Hat repository onto your local Quay repository using `oc-mirror v2`.
+In this 1st step, these are the steps we'll take to mirror the images from the public Red Hat repository onto your local Quay repository using `oc-mirror v2`.
 
 1.  Pulled the following `oc-mirror` version
 

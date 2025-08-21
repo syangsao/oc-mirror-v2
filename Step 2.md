@@ -1,4 +1,4 @@
-In this 2nd comment, we'll be converting an OpenShift cluster from `connected` to `disconnected` to talk to the local Quay mirror-registry hosting the release and operator images from the 1st comment.
+In this 2nd step, we'll be converting an OpenShift cluster from `connected` to `disconnected` to talk to the local Quay mirror-registry hosting the release and operator images from the 1st comment.
 
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html-single/disconnected_environments/index#connected-to-disconnected-config-registry_connected-to-disconnected
 
