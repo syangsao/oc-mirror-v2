@@ -60,7 +60,7 @@ odf4/cephcsi-operator-bundle: marking manifest sha256:326310df08e7c01c962f686733
 redhat/redhat-operator-index: layer link eligible for deletion: sha256:f6509a29002722177aa04e958f32f72ff043d42096e7925b2e33b39da60d6aca
 2025/08/14 13:22:54  [INFO]   : 👋 Goodbye, thank you for using oc-mirror
 
-[syangsao@grogu working-dir]$ tree /grogu/syangsao/oc-mirror/mirror1/working-dir/delete/
+$ tree /grogu/syangsao/oc-mirror/mirror1/working-dir/delete/
 /grogu/syangsao/oc-mirror/mirror1/working-dir/delete/
 ├── delete-images-delete1-test.yaml
 └── delete-imageset-config-delete1-test.yaml

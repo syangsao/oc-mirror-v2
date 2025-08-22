@@ -141,7 +141,6 @@ https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html/
 
 ```
 $ oc adm upgrade
-[syangsao@grogu ~]$ oc adm upgrade
 Cluster version is 4.19.1
 
 Upstream: https://service-route-openshift-update-service.apps.leia.syangsao.net/api/upgrades_info/v1/graph
