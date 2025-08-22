@@ -92,7 +92,7 @@ openshift/release-images: layer link eligible for deletion: sha256:eb48f2522566c
 2025/08/14 13:35:50  [INFO]   : 👋 Goodbye, thank you for using oc-mirror
 ```
 
-4.  Verify the release image `4.19.1-x86_64` is gone
+4.  Verify the release image `4.19.1-x86_64` has been removed
 
 ```
 $ skopeo list-tags docker://mirror.syangsao.net:8443/ocp4/openshift/release-images
