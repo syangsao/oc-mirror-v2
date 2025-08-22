@@ -1,8 +1,6 @@
 This repo is created with notes for setting up an OpenShift v4.19 cluster in disconnected mode using oc-mirror v2.
 
-The local registry used for this configuration is a Quay mirror-registry running on RHEL that was installed following this guide:
-
-https://www.redhat.com/en/blog/introducing-mirror-registry-for-red-hat-openshift
+The local registry used for this configuration is a Quay mirror-registry running on RHEL that was installed following this [guide](https://www.redhat.com/en/blog/introducing-mirror-registry-for-red-hat-openshift)
 
 `STEP 1` - Using oc-mirror v2 to mirror the release and operator images from Red Hat to a local registry
 
