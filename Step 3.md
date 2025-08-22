@@ -101,11 +101,11 @@ https://access.redhat.com/solutions/7040684
 4.  Run the following command on the `OSUS` cluster to verify that the graph is readily available.
 
 ```
-[syangsao@grogu ocp416-leia]$ NAMESPACE=openshift-update-service
-[syangsao@grogu ocp416-leia]$ NAME=service
-[syangsao@grogu ocp416-leia]$ POLICY_ENGINE_GRAPH_URI="$(oc -n "${NAMESPACE}" get -o jsonpath='{.status.policyEngineURI}/api/upgrades_info/v1/graph{"\n"}' updateservice "${NAME}")"
-[syangsao@grogu ocp416-leia]$ PATCH="{\"spec\":{\"upstream\":\"${POLICY_ENGINE_GRAPH_URI}\"}}"
-[syangsao@grogu ocp416-leia]$ $(oc -n "${NAMESPACE}" get -o jsonpath='{.status.policyEngineURI}/api/upgrades_info/v1/graph{"\n"}' updateservice "${NAME}")
+$ NAMESPACE=openshift-update-service
+$ NAME=service
+$ POLICY_ENGINE_GRAPH_URI="$(oc -n "${NAMESPACE}" get -o jsonpath='{.status.policyEngineURI}/api/upgrades_info/v1/graph{"\n"}' updateservice "${NAME}")"
+$ PATCH="{\"spec\":{\"upstream\":\"${POLICY_ENGINE_GRAPH_URI}\"}}"
+$ $(oc -n "${NAMESPACE}" get -o jsonpath='{.status.policyEngineURI}/api/upgrades_info/v1/graph{"\n"}' updateservice "${NAME}")
 ```
 
 There should be an output similar to this that you will need to update on the disconnected cluster.
