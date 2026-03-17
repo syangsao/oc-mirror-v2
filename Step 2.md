@@ -28,13 +28,7 @@ $ cat config.json
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=config.json
 ```
 
-4.  Update the current configuration by overriding the pull-secret
-
-```
-oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=config.json
-```
-
-5.  Verify the pull secret has been added
+4.  Verify the pull secret has been added
 
 ```
 $ oc get secret pull-secret -n openshift-config -o yaml
@@ -51,7 +45,7 @@ metadata:
 type: kubernetes.io/dockerconfigjson
 ```
 
-6.  Verify `.dockerconfigjson` secret data is valid for the local Quay mirror registry
+5.  Verify `.dockerconfigjson` secret data is valid for the local Quay mirror registry
 
 ```
 $ echo "ewogICJhdXRocyI6IHsKICAgICJtaXJyb3Iuc3lhbmdzYW8ubmV0Ojg0NDMiOiB7CiAgICAgICJhdXRoIjogImIyTndOQ3R5YjJKdmREcFhUMDVKU2tWTFVsVTJUMEUxT1RjMFRrSTNOelZWTWtsQ1EwRkVUMFpGVlZKUlZWRTNTRFpEU3pSQ1VsSklWMHRNVlRST1JWTkZVVXRSVlRsYVRsSXciLAogICAgICAiZW1haWwiOiAiIgogICAgfQogIH0KfQo=" |base64 -d
@@ -65,7 +59,7 @@ $ echo "ewogICJhdXRocyI6IHsKICAgICJtaXJyb3Iuc3lhbmdzYW8ubmV0Ojg0NDMiOiB7CiAgICAg
 }
 ```
 
-7.  Download the certificate from the local Quay repo and create a configMap with the certificate
+6.  Download the certificate from the local Quay repo and create a configMap with the certificate
 
 ```
 $ oc create configmap registry-config --from-file=mirror.syangsao.net..8443=mirror-syangsao-net.pem -n openshift-config
@@ -85,7 +79,7 @@ metadata:
   uid: 5ed426ec-7a38-4106-a051-552666423e86
 ```
 
-8.  Patch the image cluster configuration with the local Quay mirror registry info
+7.  Patch the image cluster configuration with the local Quay mirror registry info
 
 ```
 $ oc patch image.config.openshift.io/cluster --patch '{"spec":{"additionalTrustedCA":{"name":"registry-config"}}}' --type=merge
@@ -113,7 +107,7 @@ spec:
     name: registry-config
 ```
 
-9.  Disable all the operators in the `UI - Administration -> Cluster Settings -> Configuration -> OperatorHub -> Cluster -> Sources`
+8.  Disable all the operators in the `UI - Administration -> Cluster Settings -> Configuration -> OperatorHub -> Cluster -> Sources`
 
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.19/html-single/disconnected_environments/index#olm-restricted-networks-operatorhub_olm-restricted-networks
 
@@ -122,7 +116,7 @@ oc patch OperatorHub cluster --type json \
     -p '[{"op": "add", "path": "/spec/disableAllDefaultSources", "value": true}]'
 ```
 
-10.  Apply the IDMS and ITMS files ... note that there are 2 `signature-configmap` files, only apply 1 of them.  The `updateService` file should only be applied to an OpenShift cluster that is hosting the `OpenShift Update Service`
+9.  Apply the IDMS and ITMS files ... note that there are 2 `signature-configmap` files, only apply 1 of them.  The `updateService` file should only be applied to an OpenShift cluster that is hosting the `OpenShift Update Service`
 
 ```
 $ pwd
@@ -151,7 +145,7 @@ error: resource mapping not found for name: "update-service-oc-mirror" namespace
 ensure CRDs are installed first
 ```
 
-11.  Verification that the image sets for both the operator and releases are installed, along with the catalogsource pointed to the local Quay repo
+10.  Verification that the image sets for both the operator and releases are installed, along with the catalogsource pointed to the local Quay repo
 
 ```
 $ oc get imagedigestmirrorset
