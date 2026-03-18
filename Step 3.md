@@ -29,7 +29,26 @@ RNZu9YO6bVi9JNlWSOrvxKJGgYhqOkbRqZtNyWHa0V1Xahg=
 $ oc create configmap registry-config --from-file=mirror.syangsao.net..8443=mirror-syangsao-net-chain.pem -n openshift-config
 ```
 
-2.  Configure additional trusts and update the spec section
+2.  Update the registry-config configmap by adding the `updateservice-registry`
+
+```
+$ oc edit cm registry-config -n openshift-config
+```
+
+Copy the 3 lines for `mirror.syangsao.net:8443` and create the same entries for `updateservice-registry` as seen below
+
+```
+  mirror.syangsao.net..8443: "-----BEGIN CERTIFICATE-----\r\nMIID+zCCA4KgAwIBAgIQQjmlAzHG0/Ip/..zxVxf80QIwCd3I2u27tQ/ryaK3wSxZNOmtc/l3EjwkFpxi72VLcUhB\r\nRnpjH5iGPn2urYwkKeyz\r\n-----END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE-----\r\nMIIDhTCCAwygAwIBAgIQI7dt48G7KxpRlh4I6rdk6DAKBggqhkjOPQQDAzCBiDEL\r\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNl\r\neSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvc..VzdC5jb20wCgYIKoZIzj0EAwMDZwAwZAIwJHBUDwHJQN3I\r\nVNltVMrICMqYQ3TYP/TXqV9t8mG5cAomG2MwqIsxnL937Gewf6WIAjAlrauksO6N\r\nUuDdDXyd330druJcZJx0+H5j5cFOYBaGsKdeGW7sCMaR2PsDFKGllas=\r\n-----END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE-----\r\nMIICjzCCAhWgAwIBAgIQXIuZxVqUxdJxVt7NiYDMJjAKBggqhkjOPQQDAzCBiDEL\r\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNl\r\neSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvc..isIJxOzksU0CMQDpKmFHjFJKS04YcPbW\r\nRNZu9YO6bVi9JNlWSOrvxKJGgYhqOkbRqZtNyWHa0V1Xahg=\r\n-----END
+    CERTIFICATE-----\r\n"
+  updateservice-registry: "-----BEGIN CERTIFICATE-----\r\nMIID+zCCA4KgAwIBAgIQQjmlAzHG0/Ip/..zxVxf80QIwCd3I2u27tQ/ryaK3wSxZNOmtc/l3EjwkFpxi72VLcUhB\r\nRnpjH5iGPn2urYwkKeyz\r\n-----END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE-----\r\nMIIDhTCCAwygAwIBAgIQI7dt48G7KxpRlh4I6rdk6DAKBggqhkjOPQQDAzCBiDEL\r\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNl\r\neSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvc..VzdC5jb20wCgYIKoZIzj0EAwMDZwAwZAIwJHBUDwHJQN3I\r\nVNltVMrICMqYQ3TYP/TXqV9t8mG5cAomG2MwqIsxnL937Gewf6WIAjAlrauksO6N\r\nUuDdDXyd330druJcZJx0+H5j5cFOYBaGsKdeGW7sCMaR2PsDFKGllas=\r\n-----END
+    CERTIFICATE-----\r\n-----BEGIN CERTIFICATE-----\r\nMIICjzCCAhWgAwIBAgIQXIuZxVqUxdJxVt7NiYDMJjAKBggqhkjOPQQDAzCBiDEL\r\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCk5ldyBKZXJzZXkxFDASBgNVBAcTC0plcnNl\r\neSBDaXR5MR4wHAYDVQQKExVUaGUgVVNFUlRSVVNUIE5ldHdvc..isIJxOzksU0CMQDpKmFHjFJKS04YcPbW\r\nRNZu9YO6bVi9JNlWSOrvxKJGgYhqOkbRqZtNyWHa0V1Xahg=\r\n-----END
+    CERTIFICATE-----\r\n"
+```
+
+3.  Configure additional trusts and update the spec section
 
 ```
 $ oc edit image.config.openshift.io cluster
@@ -39,7 +58,7 @@ spec:
     name: registry-config
 ```
 
-3.  Configure OpenShift Update Service
+4.  Configure OpenShift Update Service
 
 ```
 $ NAMESPACE=openshift-update-service
@@ -100,7 +119,7 @@ You might need to make sure the certificate on the registry is a full-chain cert
 
 https://access.redhat.com/solutions/7040684
 
-4.  Run the following command on the `OSUS` cluster to verify that the graph is readily available.
+5.  Run the following command on the `OSUS` cluster to verify that the graph is readily available.
 
 ```
 $ NAMESPACE=openshift-update-service
@@ -135,7 +154,7 @@ $ curl -kvv https://service-route-openshift-update-service.apps.leia.syangsao.ne
 [...]
 ```
 
-5.  Verified that OSUS link is working on the client after changing the `Upstream` address for the graph.  
+6.  Verified that OSUS link is working on the client after changing the `Upstream` address for the graph.  
 
 The `oc adm upgrade` while verifying it with some of the new command options
 
