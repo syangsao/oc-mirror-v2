@@ -157,11 +157,6 @@ $ oc get imagedigestmirrorset -o jsonpath='{.items[?(@.metadata.annotations.crea
 idms-operator-0 
 idms-release-0
 
-$ oc get imagetagmirrorset
-NAME             AGE
-itms-generic-0   90s
-itms-release-0   90s
-
 $ oc get imagetagmirrorset -o jsonpath='{.items[?(@.metadata.annotations.createdBy=="oc-mirror v2")].metadata.name}'
 itms-generic-0 
 itms-release-0
