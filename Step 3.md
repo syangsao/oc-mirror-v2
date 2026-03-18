@@ -9,7 +9,7 @@ The OpenShift Update Service (OSUS) provides update recommendations to OpenShift
 1.  Configure a ConfigMap using the local registry's `FULL CHAIN` certificate
 
 ```
-$ cat mirror-syangsao-net-chain-1.pem
+$ cat mirror-syangsao-net-chain.pem
 -----BEGIN CERTIFICATE-----
 MIID+zCCA4KgAwIBAgIQQjmlAzHG0/Ip/FPTiTziKDAKBggqhkjOPQQDAzBLMQsw
 ...
@@ -26,10 +26,10 @@ MIICjzCCAhWgAwIBAgIQXIuZxVqUxdJxVt7NiYDMJjAKBggqhkjOPQQDAzCBiDEL
 RNZu9YO6bVi9JNlWSOrvxKJGgYhqOkbRqZtNyWHa0V1Xahg=
 -----END CERTIFICATE-----
 
-$ oc create configmap registry-config --from-file=mirror.syangsao.net..8443=mirror-syangsao-net.pem -n openshift-config
+$ oc create configmap registry-config --from-file=mirror.syangsao.net..8443=mirror-syangsao-net-chain.pem -n openshift-config
 ```
 
-2.  Configure additional trusts [2] and update the spec section
+2.  Configure additional trusts and update the spec section
 
 ```
 $ oc edit image.config.openshift.io cluster
@@ -39,7 +39,7 @@ spec:
     name: registry-config
 ```
 
-3.  Configure OpenShift Update Service [3]
+3.  Configure OpenShift Update Service
 
 ```
 $ NAMESPACE=openshift-update-service
