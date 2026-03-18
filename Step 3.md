@@ -79,7 +79,7 @@ EOF
 updateservice.updateservice.operator.openshift.io/service created
 ```
 
-If this issue occurs, you will need 
+If this issue occurs ...
 
 ```
 $ oc get pods -n openshift-update-service
