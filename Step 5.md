@@ -1,4 +1,4 @@
-In the 5th and final step, we'll be deleting the unwanted images from the local quay mirror registry using oc-mirror v2
+In the 5th step, we'll be deleting the unwanted images from the local quay mirror registry using oc-mirror v2
 
 1.  Following the guide here using the new `DeleteImageSetConfiguration` option via oc-mirror v2
 
