@@ -11,3 +11,5 @@ The local registry used for this configuration is a Quay mirror-registry running
 `STEP 4` - Upgrading the cluster while talking to the local registry
 
 `STEP 5` - Deleting unwanted images on the local registry
+
+`STEP 6` - TBD - provide instructions on how to build an install-config.yaml to boot off of the local registry
