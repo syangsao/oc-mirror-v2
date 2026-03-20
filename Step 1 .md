@@ -37,7 +37,7 @@ Architecture: amd64
 4.19.5
 ```
 
-Concentrating on 1 operator - odf-operator to sync up and test
+Concentrating on 1 operator `odf-operator` to sync up and test
 
 ```
 $ oc-mirror list operators --package odf-operator --catalog registry.redhat.io/redhat/redhat-operator-index:v4.19 
