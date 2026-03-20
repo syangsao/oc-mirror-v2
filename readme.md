@@ -6,7 +6,7 @@ The local registry used for this configuration is a Quay mirror-registry running
 
 `STEP 2` - Converting a connected OpenShift cluster to a disconnected one while talking to a local registry
 
-`STEP 3` - Installing OSUS in a disconnected environment
+`STEP 3` - Installing `OSUS` in a disconnected environment
 
 `STEP 4` - Upgrading the cluster while talking to the local registry
 
