@@ -12,4 +12,4 @@ The local registry used for this configuration is a Quay mirror-registry running
 
 `STEP 5` - Deleting unwanted images on the local registry
 
-`STEP 6` - **TO_DO** provide instructions on how to build an install-config.yaml to boot off of the local registry
+`STEP 6` - **<TO_DO>** provide instructions on how to build an install-config.yaml to boot off of the local registry
