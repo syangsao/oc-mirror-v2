@@ -2,9 +2,7 @@ For this `3rd step`, we'll be installing `OSUS` in a disconnected environment, f
 
 https://docs.redhat.com/en/documentation/openshift_container_platform/4.16/html-single/updating_clusters/index#update-service-overview_updating-restricted-network-cluster-osus
 
-```
 The OpenShift Update Service (OSUS) provides update recommendations to OpenShift Container Platform clusters. Red Hat publicly hosts the OpenShift Update Service, and clusters in a connected environment can connect to the service through public APIs to retrieve update recommendations.  However, clusters in a disconnected environment cannot access these public APIs to retrieve update information. To have a similar update experience in a disconnected environment, you can install and configure the OpenShift Update Service so that it is available within the disconnected environment. 
-```
 
 1.  Configure a ConfigMap using the local registry's `FULL CHAIN` certificate
 
