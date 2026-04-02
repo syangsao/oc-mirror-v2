@@ -1,5 +1,7 @@
 In this `1st step`, we will mirror the images from the public Red Hat repository onto your local Quay repository using `oc-mirror v2`.
 
+This assumes that you have already followed Red Hat's [documentation](https://docs.redhat.com/en/documentation/openshift_container_platform/4.21/html-single/disconnected_environments/index) on downloading the latest copy of `oc-mirror` along with setting up your registry credentials.
+
 1.  Pulled the following `oc-mirror` version
 
 ```
