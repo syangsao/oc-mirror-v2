@@ -1,0 +1,17 @@
+# Secrets and credentials
+*.pem
+*.key
+config.json
+pull-secret*.yaml
+
+# OS command output
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local workspace artifacts
+oc-mirror/
+working-dir/
+*.tar
